@@ -1,94 +1,70 @@
-# Financial Data Chatbot - Demo Package
+# Financial Data Chatbot
 
-## What's Included
+A natural language chatbot for querying financial portfolio data - ask questions about holdings, trades, and fund performance in plain English, with no database or internet connection required.
 
-This package contains everything needed for demonstration:
+## What It Does
 
-1. **chatbot.py** - The main application
-2. **requirements.txt** - Dependencies (just pandas)
-3. **README.md** - This file
-4. **holdings.csv** - Your holdings data (add your file here)
-5. **trades.csv** - Your trades data (add your file here)
+- Answers natural language questions about holdings and trades data from CSV files
+- Compares fund performance by yearly P&L
+- Supports fund-specific queries with case-insensitive matching
+- Returns a clear error message for out-of-scope queries
+- Runs entirely locally — no API keys, no cloud, no cost
 
-## Quick Start for Demo
+## Tech Stack
 
-### Step 1: Install Dependencies
-```bash
+| Component | Tool |
+|---|---|
+| Language | Python 3.7+ |
+| Data Processing | Pandas |
+| Interface | Command-line |
+
+## Setup
+
+**1. Clone the repo**
+```
+git clone https://github.com/richakumari0311/FinancialDataChatbot.git
+cd FinancialDataChatbot
+```
+
+**2. Install dependencies**
+```
 pip install -r requirements.txt
 ```
 
-### Step 2: Add Your Data Files
-Place your CSV files in this folder:
-- holdings.csv
-- trades.csv
+**3. Add your data**
 
-### Step 3: Run the Chatbot
-```bash
+Place your CSV files in the project folder:
+- `holdings.csv` - portfolio holdings data
+- `trades.csv` - trade history data
+
+**4. Run**
+```
 python chatbot.py
 ```
 
-## Demo Questions to Try
+## Example Queries
 
-### Basic Counts
 ```
 What is the total number of holdings?
 How many trades are there?
-```
-
-### Fund-Specific Queries
-```
-Total holdings for [your fund name]
-How many trades for [your fund name]?
-```
-
-### Performance Analysis
-```
+Total holdings for FundName
 Which funds performed better?
 Show me fund performance
 ```
 
-### Invalid Query (to show error handling)
+## Project Structure
+
 ```
-What is the weather today?
-```
-
-## What the Chatbot Does
-
-1. Answers questions about holdings and trades
-2. Compares fund performance by yearly P&L
-3. Returns "Sorry can not find the answer" for invalid queries
-4. Works entirely with your local CSV files (no internet)
-
-## Key Features for Demo
-
-- Natural language queries
-- Case-insensitive fund name matching
-- Secure (all local processing)
-- Fast responses
-- Accurate data from your files
-
-## Requirements Met
-
-- Total holdings/trades count per fund
-- Fund performance comparison
-- Error handling for invalid queries
-- Uses only provided CSV data
-- No external data sources
-
-## File Structure
-```
-demo_package/
-├── chatbot.py          # Main application
+FinancialDataChatbot/
+├── chatbot.py          # Main application (~325 lines)
+├── test.py             # Unit tests (18 tests)
 ├── requirements.txt    # Dependencies
-├── README.md          # This file
-├── holdings.csv       # Your data
-└── trades.csv         # Your data
+├── holdings.csv        # Sample holdings data
+└── trades.csv          # Sample trades data
 ```
 
-## Technical Details
+## Key Details
 
-- Language: Python 3.7+
-- Dependencies: pandas only
-- Lines of code: ~325
-- Tested with 1000+ holdings and 600+ trades
-- All 18 unit tests passing
+- Tested with 1000+ holdings and 600+ trades records
+- 18 unit tests covering core query types and edge cases
+- All data processing is local, no external API calls
